@@ -36,20 +36,22 @@ try {
 
 
     <h1>Welkom op het netland beheerderspaneel</h1>
-  <table style="width:200px">
+  <table style="width:400px">
     <tr><th>Series</th>
     <th>Rating</th>
     <td style="text-align:center"></td></tr>
 <?php
 
-$series = $pdo->query('SELECT title,rating FROM series');
+$series = $pdo->query('SELECT title,rating,id FROM series');
 echo "<h1>Series</h1>";
 
 while ($show = $series->fetch()){
-    
+    $_GET['id_s'] = $show['id'];
     echo "<tr><td>";
     echo $show['title'].'</td>';
     echo "<td >". $show['rating']."</td>";
+    echo '<td><a href="series.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
+
     echo "</tr>";
     }
  
@@ -60,7 +62,7 @@ while ($show = $series->fetch()){
 
 
 
-<table style="width:200px">
+<table style="width:400px">
 <tr><th>Movies</th>
     <th>Duur</th>
     <td style="text-align:center"></td></tr>
@@ -68,13 +70,15 @@ while ($show = $series->fetch()){
         <?php
 
 
-            $movies = $pdo->query('SELECT title,duur FROM movies');
-            echo "<h1>Movies</h1>";
-            while ($show = $movies->fetch()){
-                echo "<tr>";
-                echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
-                echo "</tr>";
-                }
+$movies = $pdo->query('SELECT title,duur,id FROM movies');
+echo "<h1>Movies</h1>";
+while ($show = $movies->fetch()){
+    echo "<tr>";
+    echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
+    echo '<td><a href="movies.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
+    
+    echo "</tr>";
+    }
         ?>
 
 
