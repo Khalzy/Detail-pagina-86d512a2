@@ -14,12 +14,25 @@ include "connect.php";
 
 <body>
 
+<div id="sort">
+<?php    
+$order="";
+if(isset($_GET['order'])) {
+    if($_GET['order']=="series"){
+        $order = "ORDER BY series";
+    }
+    if($_GET['order']=="rating"){
+        $order = "ORDER BY rating DESC";
+    }
+}                     
+$query ="SELECT * FROM series $order";
 
 
+?>
     <h1>Welkom op het netland beheerderspaneel</h1>
   <table style="width:400px">
-    <tr><th>Series</th>
-    <th>Rating</th>
+    <tr><th> <a class="nav" href="index.php?order=series">Series</a></th>
+    <th><a class="nav" href="index.php?order=rating">Rating</a></th>
     <td style="text-align:center"></td></tr>
 <?php
 
