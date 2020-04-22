@@ -75,7 +75,7 @@ echo "<h1>Movies</h1>";
 while ($show = $movies->fetch()){
     echo "<tr>";
     echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
-    echo '<td><a href="movies.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
+    echo '<td><a href="films.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
     
     echo "</tr>";
     }
