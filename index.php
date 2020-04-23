@@ -21,7 +21,6 @@ include "connect.php";
 <td style="text-align:center"></td></tr>
 <?php
 
-$id = $_GET['id']?? NULL;
 $series = $pdo->query('SELECT * FROM series');
 echo "<h1>Series</h1>";
 
