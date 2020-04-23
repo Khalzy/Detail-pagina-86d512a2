@@ -25,11 +25,12 @@ echo "<h1>Series</h1>";
 
 while ($show = $series->fetch()){
     echo "<tr><td>";
-    echo $show['title'].'</td>';
-    echo "<td >". $show['rating']."</td>";
-    echo '<td><a href="series.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
+    echo $show['title'] . '</td>';
+    echo "<td >" . $show['rating'] . "</td>";
+    echo '<td><a href="series.php?id=' . $show['id'] . '">Bekijk Details</a>  </td>';
     echo "</tr>";
 }
+
 ?>
 </table>
 <table style="width:400px">
@@ -42,10 +43,12 @@ $movies = $pdo->query('SELECT * FROM movies');
 echo "<h1>Movies</h1>";
 while ($show = $movies->fetch()){
     echo "<tr>";
-    echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
-    echo '<td><a href="films.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
+    echo "<td>" . $show['title'] . '</td>';
+    echo '<td>' . $show['duur'];"</td>";
+    echo '<td><a href="films.php?id=' . $show['id'] . '">Bekijk Details</a>  </td>';
     echo "</tr>";
 }
+
 ?>
 </table>
 </body>
