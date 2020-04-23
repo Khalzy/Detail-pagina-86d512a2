@@ -3,7 +3,7 @@
 include "connect.php";
 
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? NULL;
 $series = $pdo->query("SELECT * FROM movies WHERE id=$id");
 
 while(  $show = $series->fetch()){

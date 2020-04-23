@@ -5,7 +5,7 @@ include "connect.php";
 
 <?php
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? NULL;
 $series = $pdo->query("SELECT * FROM series WHERE id=$id");
 
 while(  $show = $series->fetch()){
