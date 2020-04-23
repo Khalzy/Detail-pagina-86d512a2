@@ -20,7 +20,6 @@ include "connect.php";
 <th>Rating</th>
 <td style="text-align:center"></td></tr>
 <?php
-
 $series = $pdo->query('SELECT * FROM series');
 echo "<h1>Series</h1>";
 
@@ -39,7 +38,6 @@ while ($show = $series->fetch()){
 <td style="text-align:center"></td></tr>
 
 <?php
-
 $movies = $pdo->query('SELECT * FROM movies');
 echo "<h1>Movies</h1>";
 while ($show = $movies->fetch()){
