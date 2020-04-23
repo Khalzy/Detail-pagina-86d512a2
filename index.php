@@ -14,15 +14,12 @@ include "connect.php";
 
 <body>
 
-
-
-    <h1>Welkom op het netland beheerderspaneel</h1>
-  <table style="width:400px">
-    <tr><th>Series</th>
-    <th>Rating</th>
-    <td style="text-align:center"></td></tr>
+<h1>Welkom op het netland beheerderspaneel</h1>
+<table style="width:400px">
+<tr><th>Series</th>
+<th>Rating</th>
+<td style="text-align:center"></td></tr>
 <?php
-
 
 $id = $_GET['id']?? NULL;
 $series = $pdo->query('SELECT * FROM series');
@@ -33,24 +30,16 @@ while ($show = $series->fetch()){
     echo $show['title'].'</td>';
     echo "<td >". $show['rating']."</td>";
     echo '<td><a href="series.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
-
     echo "</tr>";
-    }
- 
-
+}
 ?>
-
 </table>
-
-
-
 <table style="width:400px">
 <tr><th>Movies</th>
-    <th>Duur</th>
-    <td style="text-align:center"></td></tr>
+<th>Duur</th>
+<td style="text-align:center"></td></tr>
 
-        <?php
-
+<?php
 
 $movies = $pdo->query('SELECT * FROM movies');
 echo "<h1>Movies</h1>";
@@ -58,16 +47,9 @@ while ($show = $movies->fetch()){
     echo "<tr>";
     echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
     echo '<td><a href="films.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
-
-    
     echo "</tr>";
-    }
-        ?>
-
-
-
-
+}
+?>
 </table>
 </body>
-
 </html>

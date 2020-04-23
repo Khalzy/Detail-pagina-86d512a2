@@ -5,15 +5,13 @@ include "connect.php";
 
 <?php
 
+$id = $_GET['id'];
+$series = $pdo->query("SELECT * FROM series WHERE id=$id");
 
-    $id = $_GET['id'];
-    $series = $pdo->query("SELECT * FROM series WHERE id=$id");
-
-    while(  $show = $series->fetch()){
+while(  $show = $series->fetch()){
     echo "<h1>".$show['title'].' - '.$show['rating']."</h1>";
     if($show['has_won_awards'] >= 1){
         $yes = "ja";
-        
     }else{
         $yes = "Nee";
     }
