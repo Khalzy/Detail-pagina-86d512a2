@@ -14,37 +14,25 @@ include "connect.php";
 
 <body>
 
-<div id="sort">
-<?php    
-$order="";
-if(isset($_GET['order'])) {
-    if($_GET['order']=="series"){
-        $order = "ORDER BY series";
-    }
-    if($_GET['order']=="rating"){
-        $order = "ORDER BY rating DESC";
-    }
-}                     
-$query ="SELECT * FROM series $order";
 
 
-?>
     <h1>Welkom op het netland beheerderspaneel</h1>
   <table style="width:400px">
-    <tr><th> <a class="nav" href="index.php?order=series">Series</a></th>
-    <th><a class="nav" href="index.php?order=rating">Rating</a></th>
+    <tr><th>Series</th>
+    <th>Rating</th>
     <td style="text-align:center"></td></tr>
 <?php
 
-$series = $pdo->query('SELECT title,rating,id FROM series');
+
+$id = $_GET['id']?? NULL;
+$series = $pdo->query('SELECT * FROM series');
 echo "<h1>Series</h1>";
 
 while ($show = $series->fetch()){
-    $_GET['id_s'] = $show['id'];
     echo "<tr><td>";
     echo $show['title'].'</td>';
     echo "<td >". $show['rating']."</td>";
-    echo '<td><a href="series.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
+    echo '<td><a href="series.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
 
     echo "</tr>";
     }
@@ -64,12 +52,13 @@ while ($show = $series->fetch()){
         <?php
 
 
-$movies = $pdo->query('SELECT title,duur,id FROM movies');
+$movies = $pdo->query('SELECT * FROM movies');
 echo "<h1>Movies</h1>";
 while ($show = $movies->fetch()){
     echo "<tr>";
     echo "<td>".$show['title'].'</td><td>'. $show['duur'];"</td>";
-    echo '<td><a href="films.php?title='.$show['id'].'">Bekijk Details</a>  </td>';
+    echo '<td><a href="films.php?id='.$show['id'].'">Bekijk Details</a>  </td>';
+
     
     echo "</tr>";
     }
